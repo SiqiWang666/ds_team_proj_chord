@@ -18,16 +18,12 @@ class Address(object):
     self.ip = ip
     self.port = int(port)
 
+  # hash function
   def __hash__(self):
     # h = hash(("%s:%s" % (self.ip, self.port)).encode()) % NUM_SLOTS
     h = hashlib.md5(("%s:%s" % (self.ip, self.port)).encode()) % NUM_SLOTS
     return h
 
-  def __cmp__(self, other):
-    return other.__hash__() < self.__hash__()
-
-  def __eq__(self, other):
-    return other.__hash__() == self.__hash__()
-
+  # print
   def __str__(self):
     return "[\"%s\", %s]" % (self.ip, self.port)
