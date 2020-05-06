@@ -368,7 +368,6 @@ class Node(rpyc.Service):
                 self._predecessor.update_finger(successor, index)
                 # print('finger table of ', self.id(), 'start: ', self._finger[x].start, 'node', self._finger[x].node.id())
 
-        # threading.Timer(2, self.update_finger).start()
 
     # DEPRECATED
 
